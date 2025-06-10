@@ -36,6 +36,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 callback = tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=3, restore_best_weights=True)
 model.fit(x_train, y_train, epochs=40, batch_size=128, validation_split=0.1, callbacks=[callback])
+
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
 print(f"Test accuracy = {test_acc:.4f}")
 
